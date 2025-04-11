@@ -6,9 +6,9 @@ from simulation import *
 n = 100000
 # number of copies
 m = 5
-# True for fifty fifties, False to not include
+# True for fifty fifties, False to not include (or for Wuthering waves)
 ff = True
-# True for char, False for wep
+# True for char, False for wep (or for Wuthering waves)
 char_or_wep = False
 
 out = simulateMany(n, m, ff, char_or_wep)
