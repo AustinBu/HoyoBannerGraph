@@ -22,10 +22,10 @@ def simulateMulti(m, ff, char_or_wep):
         out.append(total)
     return out
 
-def simulateMany(n, m, ff, char_or_wep):
+def simulateMany(m):
     out = [[] for _ in range(m)]
-    for _ in range(n):
-        l = simulateMulti(m, ff, char_or_wep)
+    for _ in range(10000):
+        l = simulateMulti(m, True, True)
         for i, val in enumerate(l):
             out[i].append(val)
     return [sorted(x) for x in out]
