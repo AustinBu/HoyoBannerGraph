@@ -5,10 +5,10 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/simulate/<int:copies>', methods=['GET'])
-def simulate(copies) -> Response:
+@app.route('/simulate/<int:copies>/<int:pulls>', methods=['GET'])
+def simulate(copies, pulls) -> Response:
     try:
-        createPlot(copies)
+        chance = createPlot(copies, pulls)
         return send_file('plot.png', mimetype='image/png')
     except Exception as e:
         return jsonify({'error': str(e)})
