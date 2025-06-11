@@ -9,7 +9,7 @@ def createPlot(copies, pulls):
     chance = 0
 
     plt.figure(figsize=(10, 6), dpi=120)
-    plt.xticks(range(0, pulls+1, 5 * math.ceil(pulls//100)))
+    plt.xticks(range(0, pulls+20, 5 * (1 + math.ceil(pulls//100))))
     plt.yticks(range(0, 110, 10))
     for z in range(copies):
         chances = list((out[z][i-1], i//(100)) for i in range(1, 10001, 100))
@@ -23,7 +23,7 @@ def createPlot(copies, pulls):
 
     plt.grid(True, which='both', linestyle='--', linewidth=0.5, alpha=0.7)
     plt.xlim(left=0)
-    plt.xlim(xmax=pulls+10)
+    plt.xlim(xmax=pulls+20)
     plt.savefig("plot.png")
     plt.close()
     return chance
